@@ -1,0 +1,24 @@
+database --Practise
+
+
+CREATE TABLE [dbo].[Categories] (
+    [CategoryId]   INT          NOT NULL,
+    [CategoryName] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CategoryId] ASC)
+);
+
+
+
+
+
+
+
+CREATE TABLE [dbo].[Products] (
+    [ProductId]    INT             NOT NULL,
+    [ProductName]  VARCHAR (50)    NOT NULL,
+    [Rate]         DECIMAL (18, 2) NOT NULL,
+    [Descripution] VARCHAR (50)    NOT NULL,
+    [CategoryId]   INT             NOT NULL,
+    PRIMARY KEY CLUSTERED ([ProductId] ASC),
+    CONSTRAINT [FK_Product_Categories] FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Categories] ([CategoryId])
+);
